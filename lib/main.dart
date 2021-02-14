@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smartdustbin/screens/login.dart';
 
 import 'screens/home.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(),
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: loginPage(),
     );
   }
 }

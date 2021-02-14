@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smartdustbin/screens/login.dart';
 import 'package:smartdustbin/widgets/Home.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -34,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _onItemTapped,
       ),
       body: SafeArea(
-        child: _selectedIndex == 0 ? Home() : Map(),
+        child: _selectedIndex == 0 ? loginPage() : Map(),
       ),
     );
   }
