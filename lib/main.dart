@@ -12,9 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(),
+      theme: ThemeData.light().copyWith(
+        accentColor: Color.fromARGB(1, 94, 192, 67),
+      ),
       debugShowCheckedModeBanner: false,
-      home: loginPage(),
+      home: LoginPage(),
     );
   }
 }

@@ -12,7 +12,9 @@ class Offer extends StatelessWidget {
         subtitle: Text('Max Points Redeem ${offerData.maxPoints}'),
         leading: Image.network(
           offerData.image,
-          width: 80,
+          height: 30,
+          width: 70,
+          fit: BoxFit.contain,
         ),
         trailing: RaisedButton(
           onPressed: () {},

@@ -1,78 +1,66 @@
 import 'package:flutter/material.dart';
 import 'package:smartdustbin/utils.dart';
 import 'package:smartdustbin/widgets/Home.dart';
+import 'package:smartdustbin/widgets/text_field.dart';
 
-class loginPage extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
-  _loginPageState createState() => _loginPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _loginPageState extends State<loginPage> {
+class _LoginPageState extends State<LoginPage> {
+  TextEditingController _idController;
+  TextEditingController _passwordController;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-            height: kheight(context) * 2.0,
-            child: Column(
-              children: [
-                Image.asset("lib/screens/images/undraw_Login_re_4vu2.jpg"),
-                SizedBox(
-                  height: 10,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    labelText: "Login ID",
-                    hintText: "Enter your Id",
-                    icon: Icon(Icons.login),
-                    labelStyle: TextStyle(
-                      fontSize: 22.0,
-                      color: Colors.blueGrey[700],
-                      fontWeight: FontWeight.bold,
-                    ),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                      gapPadding: 5.0,
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.black,
-                        width: 3.5,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextFormField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: "Password",
-                    hintText: "Enter your Password",
-                    icon: Icon(Icons.lock_open),
-                    labelStyle: TextStyle(
-                      fontSize: 22.0,
-                      color: Colors.blueGrey[700],
-                      fontWeight: FontWeight.bold,
-                    ),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                      gapPadding: 5.0,
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.black,
-                        width: 3.5,
-                      ),
-                    ),
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: null,
-                  child: Text("Submit"),
-                )
-              ],
-              mainAxisAlignment: MainAxisAlignment.center,
-            )));
+        backgroundColor: Colors.white,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.shortestSide / 2.5,
+            ),
+            Image.asset(
+              "lib/screens/images/undraw_Login_re_4vu2.jpg",
+              fit: BoxFit.contain,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            LoginPageTextField(
+              icon: Icons.login,
+              controller: _idController,
+              hintText: 'Enter your ID',
+              isObsecure: false,
+              labelText: 'Login ID',
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            LoginPageTextField(
+              key: UniqueKey(),
+              icon: Icons.lock_open,
+              controller: _passwordController,
+              hintText: 'Enter your Password',
+              isObsecure: true,
+              labelText: 'Password',
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
+              child: Container(
+                  color: Theme.of(context).accentColor,
+                  width: kwidth(context),
+                  height: 50,
+                  child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) => Home()));
+                      },
+                      child: Text('Submit'))),
+            )
+          ],
+        ));
   }
 }

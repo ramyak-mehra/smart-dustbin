@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _onItemTapped,
       ),
       body: SafeArea(
-        child: _selectedIndex == 0 ? loginPage() : Map(),
+        child: _selectedIndex == 0 ? LoginPage() : Map(),
       ),
     );
   }
